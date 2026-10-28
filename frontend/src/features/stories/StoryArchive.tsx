@@ -206,21 +206,21 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24 text-[#F7EFE2]">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8D3AC] pb-4 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#382C3D] pb-4 mb-6">
         <div>
-          <div className="flex items-center gap-2 text-[#36775B] mb-1">
+          <div className="flex items-center gap-2 text-[#38A9A0] mb-1">
             <Mic size={18} />
             <span className="font-serif font-bold text-sm tracking-wide uppercase">
               Family Spoken Voice Archive
             </span>
           </div>
-          <h1 className="font-serif text-3xl font-bold text-[#332A27]">
+          <h1 className="font-serif text-3xl font-bold text-[#F7EFE2]">
             Stories of {memorial.name}
           </h1>
-          <p className="text-sm text-[#6B5D57] font-serif italic mt-0.5">
+          <p className="text-sm text-[#B8A6B6] font-serif italic mt-0.5">
             Preserving original voice recordings, spoken anecdotes, and timestamped transcripts.
           </p>
         </div>
@@ -234,12 +234,12 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
       </div>
 
       {memorial.stories.length === 0 ? (
-        <div className="paper-card p-12 text-center bg-[#FFFAEE]">
-          <Mic size={40} className="mx-auto text-[#36775B] mb-3 opacity-60" />
-          <h3 className="font-serif text-xl font-bold text-[#332A27] mb-2">
+        <div className="paper-card p-12 text-center bg-[#151119] border border-[#382C3D]">
+          <Mic size={40} className="mx-auto text-[#38A9A0] mb-3 opacity-60" />
+          <h3 className="font-serif text-xl font-bold text-[#F7EFE2] mb-2">
             No Stories Recorded Yet
           </h3>
-          <p className="text-sm text-[#6B5D57] max-w-md mx-auto mb-6">
+          <p className="text-sm text-[#B8A6B6] max-w-md mx-auto mb-6">
             Spoken stories carry laughter, dialects, pauses, and love that text alone cannot capture. Record a memory now.
           </p>
           <button
@@ -254,7 +254,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
           
           {/* Left Column: Story List (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#713B55] block mb-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#FFB733] block mb-1">
               Archived Recordings ({memorial.stories.length})
             </span>
 
@@ -270,35 +270,35 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                   }}
                   className={`paper-card p-4 cursor-pointer transition-all ${
                     isSelected
-                      ? 'border-[#36775B] bg-[#FFF3D8] shadow-md ring-2 ring-[#36775B]/20'
-                      : 'border-[#E8D3AC] bg-[#FFFDF9] hover:bg-[#FFF3D8]/50'
+                      ? 'border-[#38A9A0] bg-[#142322] shadow-[0_0_15px_rgba(56,169,160,0.2)] ring-1 ring-[#38A9A0]'
+                      : 'border-[#382C3D] bg-[#18131E] hover:bg-[#1E1825]'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-[11px] font-bold text-[#36775B] flex items-center gap-1">
+                    <span className="text-[11px] font-bold text-[#38A9A0] flex items-center gap-1">
                       <Mic size={12} />
                       {s.teller_name ? s.teller_name : 'Spoken Memory'}
                     </span>
                     {s.audio_duration && (
-                      <span className="text-[10px] text-[#9C8E87] flex items-center gap-0.5">
+                      <span className="text-[10px] text-[#8E7C8E] flex items-center gap-0.5 font-mono">
                         <Clock size={10} /> {Math.round(s.audio_duration)}s
                       </span>
                     )}
                   </div>
 
-                  <h4 className="font-serif font-bold text-base text-[#332A27] leading-snug">
+                  <h4 className="font-serif font-bold text-base text-[#F7EFE2] leading-snug">
                     {s.title}
                   </h4>
 
                   {s.description && (
-                    <p className="text-xs text-[#6B5D57] line-clamp-2 mt-1">
+                    <p className="text-xs text-[#B8A6B6] line-clamp-2 mt-1">
                       {s.description}
                     </p>
                   )}
 
-                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-[#E8D3AC]/50 text-[11px] text-[#9C8E87]">
+                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-[#382C3D] text-[11px] text-[#8E7C8E]">
                     <span>{s.recording_date || 'Date unrecorded'}</span>
-                    <span className="font-medium text-[#713B55]">
+                    <span className="font-medium text-[#FFB733]">
                       {s.transcript ? '✓ Transcript' : 'Audio only'}
                     </span>
                   </div>
@@ -311,23 +311,23 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
           {activeStory && (
             <div className="lg:col-span-8 space-y-5">
               
-              <div className="paper-card p-6 bg-[#FFFAEE]">
+              <div className="paper-card p-6 bg-[#151119] border border-[#382C3D]">
                 
                 {/* Story Title & Meta */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#E8D3AC]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#382C3D]">
                   <div>
-                    <h2 className="font-serif text-2xl font-bold text-[#332A27]">
+                    <h2 className="font-serif text-2xl font-bold text-[#F7EFE2]">
                       {activeStory.title}
                     </h2>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#6B5D57] mt-1 font-serif">
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-[#B8A6B6] mt-1 font-serif">
                       {activeStory.teller_name && (
                         <span className="flex items-center gap-1">
-                          <User size={13} className="text-[#36775B]" /> Narrator: {activeStory.teller_name}
+                          <User size={13} className="text-[#38A9A0]" /> Narrator: {activeStory.teller_name}
                         </span>
                       )}
                       {activeStory.recording_date && (
                         <span className="flex items-center gap-1">
-                          <Calendar size={13} className="text-[#36775B]" /> {activeStory.recording_date}
+                          <Calendar size={13} className="text-[#38A9A0]" /> {activeStory.recording_date}
                         </span>
                       )}
                     </div>
@@ -361,7 +361,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                     )}
                     <button
                       onClick={() => handleDeleteStory(activeStory.id)}
-                      className="text-[#DC6073] hover:text-[#9C2738] p-1.5"
+                      className="text-[#E64264] hover:bg-[#38131C] p-1.5 rounded transition-colors cursor-pointer"
                       title="Delete story"
                     >
                       <Trash2 size={16} />
@@ -371,15 +371,15 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
 
                 {/* Description */}
                 {activeStory.description && (
-                  <p className="text-xs sm:text-sm text-[#6B5D57] italic my-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#B8A6B6] italic my-3 leading-relaxed">
                     "{activeStory.description}"
                   </p>
                 )}
 
                 {/* Original Audio Player */}
                 {activeStory.audio_path ? (
-                  <div className="bg-[#FFFDF9] p-4 rounded-xl border border-[#E8D3AC] my-4 shadow-xs">
-                    <span className="text-xs font-semibold text-[#36775B] block mb-2">
+                  <div className="bg-[#18131E] p-4 rounded-xl border border-[#382C3D] my-4 shadow-xs">
+                    <span className="text-xs font-semibold text-[#38A9A0] block mb-2">
                       Original Audio Player
                     </span>
                     <audio
@@ -390,18 +390,18 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                     />
                   </div>
                 ) : (
-                  <div className="p-3 bg-[#FFF3D8] rounded-lg text-xs text-[#713B55] my-4">
+                  <div className="p-3 bg-[#241B2C] rounded-lg text-xs text-[#FFB733] my-4 border border-[#382C3D]">
                     No audio file uploaded for this story.
                   </div>
                 )}
 
                 {/* AI Story Summary */}
                 {activeStory.ai_summary ? (
-                  <div className="bg-[#FFF3D8]/80 border border-[#E8D3AC] p-4 rounded-xl my-4">
-                    <span className="text-[11px] uppercase font-bold text-[#713B55] tracking-wider block mb-1">
+                  <div className="bg-[#241B2C] border border-[#382C3D] p-4 rounded-xl my-4">
+                    <span className="text-[11px] uppercase font-bold text-[#F5A623] tracking-wider block mb-1">
                       Narrative Summary
                     </span>
-                    <p className="text-xs sm:text-sm font-serif text-[#332A27] leading-relaxed">
+                    <p className="text-xs sm:text-sm font-serif text-[#F7EFE2] leading-relaxed">
                       {activeStory.ai_summary}
                     </p>
                   </div>
@@ -411,23 +411,23 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                     disabled={isSummarizing}
                     className="btn btn-secondary btn-sm text-xs flex items-center gap-1.5 my-3"
                   >
-                    <Sparkles size={13} className="text-[#713B55]" />
+                    <Sparkles size={13} className="text-[#F5A623]" />
                     <span>{isSummarizing ? 'Generating summary...' : 'Generate AI Summary'}</span>
                   </button>
                 ) : null}
 
                 {/* Transcription Notice / Error Box */}
                 {transcribeNotice && (
-                  <div className="bg-[#FFF3D8] border border-[#E8D3AC] p-3 rounded-lg text-xs text-[#713B55] my-3">
+                  <div className="bg-[#241B2C] border border-[#382C3D] p-3 rounded-lg text-xs text-[#FFB733] my-3">
                     {transcribeNotice}
                   </div>
                 )}
 
                 {/* Transcript Section */}
-                <div className="mt-6 pt-4 border-t border-[#E8D3AC]">
+                <div className="mt-6 pt-4 border-t border-[#382C3D]">
                   <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-serif font-bold text-base text-[#332A27] flex items-center gap-2">
-                      <FileText size={16} className="text-[#36775B]" />
+                    <h3 className="font-serif font-bold text-base text-[#F7EFE2] flex items-center gap-2">
+                      <FileText size={16} className="text-[#38A9A0]" />
                       <span>Transcript</span>
                     </h3>
 
@@ -485,7 +485,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                       {/* Timestamped Interactive Segments (if available) */}
                       {activeStory.transcript_segments && activeStory.transcript_segments.length > 0 ? (
                         <div className="space-y-2">
-                          <span className="text-[11px] text-[#9C8E87] italic block mb-1">
+                          <span className="text-[11px] text-[#8E7C8E] italic block mb-1">
                             Click any timestamp to jump to that moment in the recording:
                           </span>
                           {activeStory.transcript_segments.map((seg, idx) => {
@@ -496,12 +496,12 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                               <div
                                 key={idx}
                                 onClick={() => handleSeek(seg.start)}
-                                className="flex items-start gap-3 p-2 rounded-lg hover:bg-[#FFF3D8] transition-colors cursor-pointer group"
+                                className="flex items-start gap-3 p-2 rounded-lg hover:bg-[#241B2C] transition-colors cursor-pointer group"
                               >
-                                <span className="font-mono text-xs font-bold text-[#36775B] bg-[#36775B]/10 px-2 py-0.5 rounded shrink-0 group-hover:bg-[#36775B] group-hover:text-white transition-colors">
+                                <span className="font-mono text-xs font-bold text-[#38A9A0] bg-[#38A9A0]/20 px-2 py-0.5 rounded shrink-0 group-hover:bg-[#38A9A0] group-hover:text-[#0C0A0E] transition-colors">
                                   {timeStr}
                                 </span>
-                                <p className="text-xs sm:text-sm font-serif text-[#332A27] leading-relaxed">
+                                <p className="text-xs sm:text-sm font-serif text-[#F7EFE2] leading-relaxed">
                                   {seg.text}
                                 </p>
                               </div>
@@ -509,13 +509,13 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                           })}
                         </div>
                       ) : (
-                        <div className="p-4 bg-[#FFFDF9] rounded-xl border border-[#E8D3AC] font-serif text-sm text-[#332A27] leading-relaxed whitespace-pre-line">
+                        <div className="p-4 bg-[#18131E] rounded-xl border border-[#382C3D] font-serif text-sm text-[#F7EFE2] leading-relaxed whitespace-pre-line">
                           {activeStory.transcript}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <div className="text-center py-6 text-xs text-[#9C8E87] font-serif italic bg-[#FFFDF9] rounded-xl border border-dashed border-[#E8D3AC]">
+                    <div className="text-center py-6 text-xs text-[#8E7C8E] font-serif italic bg-[#18131E] rounded-xl border border-dashed border-[#382C3D]">
                       No transcript yet. Click "Run Local Speech-to-Text" or "Edit" to type notes.
                     </div>
                   )}
@@ -531,15 +531,15 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
 
       {/* Modal: Record / Add New Story */}
       {isCreatingStory && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in no-print">
-          <div className="paper-card w-full max-w-lg bg-[#FFFAEE] border-2 border-[#E8D3AC] rounded-2xl shadow-2xl p-6">
-            <h3 className="font-serif text-xl font-bold text-[#332A27] mb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fade-in no-print">
+          <div className="paper-card w-full max-w-lg bg-[#151119] border-2 border-[#382C3D] rounded-2xl shadow-2xl p-6">
+            <h3 className="font-serif text-xl font-bold text-[#F7EFE2] mb-4">
               Record or Add Family Story
             </h3>
 
             <form onSubmit={handleCreateStory} className="space-y-4">
               <div>
-                <label className="form-label">Story Title <span className="text-[#DC6073]">*</span></label>
+                <label className="form-label">Story Title <span className="text-[#E64264]">*</span></label>
                 <input
                   type="text"
                   value={newTitle}
@@ -574,8 +574,8 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
               </div>
 
               {/* Audio Recording / Upload */}
-              <div className="bg-[#FFFDF9] p-4 rounded-xl border border-[#E8D3AC]">
-                <span className="text-xs font-semibold text-[#36775B] block mb-2">
+              <div className="bg-[#18131E] p-4 rounded-xl border border-[#382C3D]">
+                <span className="text-xs font-semibold text-[#38A9A0] block mb-2">
                   Voice Recording
                 </span>
 
@@ -584,7 +584,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                     <button
                       type="button"
                       onClick={startRecording}
-                      className="btn btn-secondary btn-sm flex items-center gap-1.5 text-[#DC6073]"
+                      className="btn btn-secondary btn-sm flex items-center gap-1.5 text-[#E64264]"
                     >
                       <Mic size={14} /> Record Live
                     </button>
@@ -614,7 +614,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                 </div>
 
                 {newAudioFile && (
-                  <p className="text-xs text-[#36775B] mt-2 font-medium">
+                  <p className="text-xs text-[#4ECA96] mt-2 font-medium">
                     ✓ Audio file attached ready to save.
                   </p>
                 )}
@@ -631,7 +631,7 @@ export const StoryArchive: React.FC<StoryArchiveProps> = ({
                 />
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E8D3AC]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#382C3D]">
                 <button
                   type="button"
                   onClick={() => setIsCreatingStory(false)}

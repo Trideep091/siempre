@@ -80,42 +80,42 @@ export const SearchPage: React.FC<SearchPageProps> = ({
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 pb-24">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 pb-24 text-[#F7EFE2]">
       
       {/* Header */}
-      <div className="border-b border-[#E8D3AC] pb-4 mb-6">
-        <div className="flex items-center gap-2 text-[#4A9C96] mb-1">
+      <div className="border-b border-[#382C3D] pb-4 mb-6">
+        <div className="flex items-center gap-2 text-[#38A9A0] mb-1">
           <SearchIcon size={18} />
           <span className="font-serif font-bold text-sm tracking-wide uppercase">
             Archive Search & Rediscovery
           </span>
         </div>
-        <h1 className="font-serif text-3xl font-bold text-[#332A27]">
+        <h1 className="font-serif text-3xl font-bold text-[#F7EFE2]">
           Search Family Memories
         </h1>
-        <p className="text-sm text-[#6B5D57] font-serif italic mt-0.5">
+        <p className="text-sm text-[#B8A6B6] font-serif italic mt-0.5">
           Find recipes, songs, spoken words, lemon drops, and courtyard stories across your archive.
         </p>
       </div>
 
       {/* Search Input Bar */}
-      <div className="paper-card p-4 sm:p-5 bg-[#FFFAEE] border border-[#E8D3AC] mb-8 shadow-md">
+      <div className="paper-card p-4 sm:p-5 bg-[#151119] border border-[#382C3D] mb-8 shadow-md">
         <div className="relative mb-3">
-          <SearchIcon size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9C8E87]" />
+          <SearchIcon size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8E7C8E]" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Type anything (e.g., mole, sewing, courtyard, amor eterno, cinnamon)..."
-            className="form-input pl-12 text-base font-serif bg-white"
+            className="form-input pl-12 text-base font-serif bg-[#18131E] border-[#382C3D] text-[#F7EFE2] placeholder-[#8E7C8E]"
             autoFocus
           />
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-3 text-xs text-[#6B5D57]">
+        <div className="flex flex-wrap items-center gap-3 text-xs text-[#B8A6B6]">
           <div className="flex items-center gap-1.5 font-medium">
-            <Filter size={14} className="text-[#713B55]" />
+            <Filter size={14} className="text-[#FFB733]" />
             <span>Filters:</span>
           </div>
 
@@ -124,7 +124,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <select
               value={selectedMemorialId}
               onChange={(e) => setSelectedMemorialId(e.target.value)}
-              className="form-select text-xs py-1 px-2.5 max-w-[200px]"
+              className="bg-[#241B2C] border border-[#3D2E44] text-[#F7EFE2] rounded-lg text-xs py-1.5 px-2.5 max-w-[200px]"
             >
               <option value="">All Memorials</option>
               {memorials.map((m) => (
@@ -137,7 +137,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <select
             value={selectedItemType}
             onChange={(e) => setSelectedItemType(e.target.value)}
-            className="form-select text-xs py-1 px-2.5 max-w-[180px]"
+            className="bg-[#241B2C] border border-[#3D2E44] text-[#F7EFE2] rounded-lg text-xs py-1.5 px-2.5 max-w-[180px]"
           >
             <option value="">All Types (Food, Songs, Stories)</option>
             <option value="food">Foods & Recipes</option>
@@ -149,13 +149,13 @@ export const SearchPage: React.FC<SearchPageProps> = ({
 
           {/* Suggested Quick Searches */}
           <div className="flex items-center gap-1.5 ml-auto text-[11px]">
-            <span className="text-[#9C8E87]">Try:</span>
+            <span className="text-[#8E7C8E]">Try:</span>
             {['mole', 'courtyard', 'song', 'sewing', 'garden'].map((term) => (
               <button
                 key={term}
                 type="button"
                 onClick={() => setQuery(term)}
-                className="bg-[#FFF3D8] hover:bg-[#F3A623] hover:text-[#332A27] px-2 py-0.5 rounded text-[#713B55] transition-colors"
+                className="bg-[#241B2C] hover:bg-[#F5A623] hover:text-[#0C0A0E] px-2 py-0.5 rounded text-[#FFB733] border border-[#3D2E44] transition-colors cursor-pointer"
               >
                 {term}
               </button>
@@ -167,18 +167,18 @@ export const SearchPage: React.FC<SearchPageProps> = ({
       {/* Results List */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[#713B55]">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[#FFB733]">
             {query.trim() ? `Search Results (${totalCount})` : 'Search Archive'}
           </span>
-          {isLoading && <span className="text-xs text-[#9C8E87] animate-pulse">Searching...</span>}
+          {isLoading && <span className="text-xs text-[#8E7C8E] animate-pulse">Searching...</span>}
         </div>
 
         {query.trim() && results.length === 0 && !isLoading && (
-          <div className="paper-card p-10 text-center bg-[#FFFAEE]">
-            <p className="font-serif text-base text-[#6B5D57] italic">
+          <div className="paper-card p-10 text-center bg-[#151119] border border-[#382C3D]">
+            <p className="font-serif text-base text-[#B8A6B6] italic">
               No memories or stories matched "{query}".
             </p>
-            <p className="text-xs text-[#9C8E87] mt-1">
+            <p className="text-xs text-[#8E7C8E] mt-1">
               Try broader keywords like "food", "story", or "garden".
             </p>
           </div>
@@ -197,14 +197,14 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                     onNavigateToItem(r.memorial_id, r.id);
                   }
                 }}
-                className="paper-card p-5 bg-[#FFFAEE] hover:bg-[#FFFDF9] hover:border-[#F3A623] cursor-pointer transition-all group shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                className="paper-card p-5 bg-[#151119] border border-[#382C3D] hover:bg-[#1C1622] hover:border-[#F5A623] hover:shadow-[0_4px_20px_rgba(245,166,35,0.15)] cursor-pointer transition-all group shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4"
               >
                 <div className="space-y-1.5 flex-1">
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-full bg-white border border-[#E8D3AC] flex items-center justify-center shrink-0">
+                    <div className="w-7 h-7 rounded-full bg-[#241B2C] border border-[#3D2E44] flex items-center justify-center shrink-0">
                       {getItemIcon(r.item_type, r.result_type)}
                     </div>
-                    <span className="text-[11px] uppercase tracking-wider font-bold text-[#713B55]">
+                    <span className="text-[11px] uppercase tracking-wider font-bold text-[#FFB733]">
                       {r.memorial_name} • {r.result_type === 'story' ? 'Spoken Story' : (r.item_type || r.result_type)}
                     </span>
                     {r.matched_timestamp_label && (
@@ -214,18 +214,18 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                     )}
                   </div>
 
-                  <h3 className="font-serif font-bold text-lg text-[#332A27] group-hover:text-[#713B55] transition-colors leading-tight">
+                  <h3 className="font-serif font-bold text-lg text-[#F7EFE2] group-hover:text-[#FFB733] transition-colors leading-tight">
                     {r.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#6B5D57] font-serif leading-relaxed line-clamp-2">
+                  <p className="text-xs sm:text-sm text-[#B8A6B6] font-serif leading-relaxed line-clamp-2">
                     {r.snippet}
                   </p>
 
                   {r.tags && r.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {r.tags.map(t => (
-                        <span key={t} className="text-[10px] text-[#9C8E87] bg-black/5 px-2 py-0.5 rounded-full flex items-center gap-0.5">
+                        <span key={t} className="text-[10px] text-[#8E7C8E] bg-white/5 border border-white/10 px-2 py-0.5 rounded-full flex items-center gap-0.5">
                           <Tag size={9} /> {t}
                         </span>
                       ))}
@@ -233,7 +233,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                   )}
                 </div>
 
-                <div className="flex items-center gap-1 text-xs font-semibold text-[#713B55] group-hover:translate-x-1 transition-transform shrink-0">
+                <div className="flex items-center gap-1 text-xs font-semibold text-[#FFB733] group-hover:translate-x-1 transition-transform shrink-0">
                   <span>{isStory ? 'Listen in Archive' : 'Open on Altar'}</span>
                   <ArrowRight size={14} />
                 </div>

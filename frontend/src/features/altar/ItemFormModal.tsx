@@ -96,19 +96,19 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in no-print">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in no-print">
       <div 
-        className="paper-card w-full max-w-xl bg-[#FFFAEE] border-2 border-[#E8D3AC] rounded-2xl shadow-2xl overflow-hidden"
+        className="paper-card w-full max-w-xl bg-[#18131E] border-2 border-[#3D2E42] rounded-2xl shadow-2xl overflow-hidden text-[#F7EFE2]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-[#FFF3D8] border-b border-[#E8D3AC] px-6 py-4 flex items-center justify-between">
-          <h3 className="font-serif text-xl font-bold text-[#332A27]">
+        <div className="bg-[#1E1724] border-b border-[#35283A] px-6 py-4 flex items-center justify-between">
+          <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
             {isEditing ? 'Edit Altar Item' : 'Add an Item to the Ofrenda'}
           </h3>
           <button 
             type="button" 
             onClick={onClose}
-            className="text-[#9C8E87] hover:text-[#332A27] p-1 cursor-pointer"
+            className="text-[#7E6C7D] hover:text-[#F7EFE2] p-1 cursor-pointer"
           >
             <X size={20} />
           </button>
@@ -116,7 +116,7 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
           {error && (
-            <div className="bg-[#DC6073]/15 text-[#9C2738] p-3 rounded-lg text-xs">
+            <div className="bg-[#E64264]/20 border border-[#E64264] text-[#FFA3B5] p-3 rounded-lg text-xs">
               {error}
             </div>
           )}
@@ -135,11 +135,11 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
                     onClick={() => setItemType(t.type)}
                     className={`p-2.5 rounded-lg border text-xs font-medium flex flex-col items-center gap-1.5 transition-all cursor-pointer ${
                       isSelected
-                        ? 'border-[#F3A623] bg-[#FFF3D8] text-[#332A27] font-bold ring-2 ring-[#F3A623]/30'
-                        : 'border-[#E8D3AC] bg-[#FFFDF9] text-[#6B5D57] hover:bg-[#FFF3D8]/50'
+                        ? 'border-[#F5A623] bg-[#2A1F13] text-[#FFB733] font-bold ring-2 ring-[#F5A623]/30 shadow-[0_0_12px_rgba(245,166,35,0.2)]'
+                        : 'border-[#382C3D] bg-[#141018] text-[#B8A6B6] hover:bg-[#1E1724]'
                     }`}
                   >
-                    <Icon size={18} className={isSelected ? 'text-[#ED7047]' : 'text-[#9C8E87]'} />
+                    <Icon size={18} className={isSelected ? 'text-[#FF5E36]' : 'text-[#7E6C7D]'} />
                     <span>{t.label}</span>
                   </button>
                 );
@@ -149,7 +149,7 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
 
           {/* Title */}
           <div className="form-group">
-            <label className="form-label">Item Title <span className="text-[#DC6073]">*</span></label>
+            <label className="form-label">Item Title <span className="text-[#E64264]">*</span></label>
             <input
               type="text"
               value={title}
@@ -203,11 +203,11 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
           <div className="form-group">
             <label className="form-label">Photograph or Artifact Image (Optional)</label>
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-[#FFF3D8] border border-[#E8D3AC] rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+              <div className="w-20 h-20 bg-[#120D17] border border-[#382C3D] rounded-lg overflow-hidden flex items-center justify-center shrink-0">
                 {assetPreview ? (
                   <img src={assetPreview} alt="Preview" className="w-full h-full object-cover" />
                 ) : (
-                  <Upload size={22} className="text-[#B8A082]" />
+                  <Upload size={22} className="text-[#7E6C7D]" />
                 )}
               </div>
               <div className="flex-1">
@@ -215,9 +215,9 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
                   type="file"
                   accept="image/*"
                   onChange={handleAssetChange}
-                  className="text-xs text-[#6B5D57] file:mr-2 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-xs file:bg-[#F3A623] file:text-[#332A27] file:font-semibold hover:file:bg-[#E29618] cursor-pointer"
+                  className="text-xs text-[#B8A6B6] file:mr-2 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-xs file:bg-[#F5A623] file:text-[#1A0F00] file:font-semibold hover:file:bg-[#FFAE2B] cursor-pointer"
                 />
-                <span className="text-[11px] text-[#9C8E87] block mt-1">
+                <span className="text-[11px] text-[#7E6C7D] block mt-1">
                   Upload an authentic photo of the food, object, or person.
                 </span>
               </div>
@@ -270,7 +270,7 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
           </div>
 
           {/* Submit Actions */}
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#E8D3AC]">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#35283A]">
             <button
               type="button"
               onClick={onClose}
@@ -291,4 +291,3 @@ export const ItemFormModal: React.FC<ItemFormModalProps> = ({
     </div>
   );
 };
-

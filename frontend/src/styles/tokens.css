@@ -1,47 +1,49 @@
 :root {
-  /* Core Color Palette */
-  --color-warm-paper: #FFF3D8;
-  --color-aged-parchment: #E8D3AC;
-  --color-soft-cream: #FFFAEE;
-  --color-card-bg: #FFFFFF;
+  /* Dark, Mysterious & Spooky Ofrenda Palette */
+  --color-warm-paper: #0C0A0E;        /* Midnight obsidian canvas */
+  --color-aged-parchment: #221A26;    /* Dark velvet crypt tone */
+  --color-soft-cream: #18131D;        /* Mystical card surface */
+  --color-card-bg: #151119;
 
-  --color-marigold: #F3A623;
-  --color-marigold-light: #FBE6B3;
-  --color-marigold-dark: #C97D09;
+  /* Radiant Guiding Lights in the Dark */
+  --color-marigold: #F5A623;          /* Glowing golden Cempasúchil */
+  --color-marigold-light: #3D2912;    /* Dark amber halo */
+  --color-marigold-dark: #FFB733;
 
-  --color-tangerine: #ED7047;
-  --color-tangerine-light: #FAD4C6;
+  --color-tangerine: #FF5E36;         /* Flame ember */
+  --color-tangerine-light: #381B13;
 
-  --color-coral: #DC6073;
-  --color-coral-light: #F7D3D9;
+  --color-coral: #E64264;             /* Spirit blood-rose */
+  --color-coral-light: #38131C;
 
-  --color-berry: #713B55;
-  --color-berry-light: #E0C7D3;
-  --color-berry-dark: #4A2337;
+  --color-berry: #9B2D62;             /* Deep gothic velvet wine */
+  --color-berry-light: #2D1424;
+  --color-berry-dark: #C94285;
 
-  --color-botanical: #36775B;
-  --color-botanical-light: #CDE3D9;
+  --color-botanical: #2E8560;         /* Spectral forest moss */
+  --color-botanical-light: #132E22;
 
-  --color-turquoise: #4A9C96;
-  --color-turquoise-light: #D2ECE9;
+  --color-turquoise: #38A9A0;         /* Spirit turquoise mist */
+  --color-turquoise-light: #122B29;
 
-  --color-ink: #332A27;
-  --color-ink-muted: #6B5D57;
-  --color-ink-light: #9C8E87;
-  --color-border: #E4D5BC;
-  --color-border-subtle: #EFE4D2;
+  /* Typography / Text Colors for Dark Theme */
+  --color-ink: #F7EFE2;               /* Bone / pale parchment text */
+  --color-ink-muted: #B8A6B6;         /* Soft violet-smoke */
+  --color-ink-light: #7E6C7D;         /* Ash grey */
+  --color-border: #35283A;            /* Dark ornate border */
+  --color-border-subtle: #251C29;
 
   /* Typography Fonts */
   --font-serif: 'Fraunces', 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-handwritten: 'Caveat', 'Patrick Hand', cursive;
 
-  /* Elevation Shadows */
-  --shadow-paper-flat: 0 1px 3px rgba(51, 42, 39, 0.08), 0 1px 2px rgba(51, 42, 39, 0.04);
-  --shadow-paper: 0 4px 12px rgba(51, 42, 39, 0.08), 0 1px 3px rgba(51, 42, 39, 0.06);
-  --shadow-paper-lifted: 0 10px 24px rgba(51, 42, 39, 0.12), 0 3px 6px rgba(51, 42, 39, 0.08);
-  --shadow-altar: 0 16px 36px rgba(51, 42, 39, 0.16), 0 6px 12px rgba(51, 42, 39, 0.1);
-  --shadow-candle-glow: 0 0 25px rgba(243, 166, 35, 0.45);
+  /* Atmospheric Shadows & Candle Glows */
+  --shadow-paper-flat: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-paper: 0 6px 18px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 166, 35, 0.05);
+  --shadow-paper-lifted: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 166, 35, 0.12);
+  --shadow-altar: 0 20px 48px rgba(0, 0, 0, 0.9), 0 0 40px rgba(245, 166, 35, 0.18);
+  --shadow-candle-glow: 0 0 35px rgba(245, 166, 35, 0.55), 0 0 10px rgba(255, 94, 54, 0.4);
 
   /* Radius */
   --radius-sm: 4px;
@@ -56,7 +58,6 @@
   --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -65,4 +66,3 @@
     scroll-behavior: auto !important;
   }
 }
-

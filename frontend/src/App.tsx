@@ -105,6 +105,13 @@ export const App: React.FC = () => {
       await api.deleteMemorial(id);
       const remaining = memorials.filter(m => m.id !== id);
       setMemorials(remaining);
+      if (currentView === 'welcome') {
+        if (activeMemorialId === id) {
+          setActiveMemorial(null);
+          setActiveMemorialId(remaining[0]?.id || null);
+        }
+        return;
+      }
       if (remaining.length > 0) {
         selectMemorial(remaining[0].id, 'altar');
       } else {
@@ -118,7 +125,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF3D8] text-[#332A27]">
+    <div className="min-h-screen flex flex-col bg-[#0C0A0E] text-[#F7EFE2]">
       
       {/* Global Navigation Header */}
       <Navigation
@@ -151,6 +158,7 @@ export const App: React.FC = () => {
             onExploreDemo={handleExploreDemo}
             memorials={memorials}
             onSelectMemorial={(id) => selectMemorial(id, 'altar')}
+            onDeleteMemorial={handleDeleteMemorial}
           />
         )}
 
@@ -231,17 +239,17 @@ export const App: React.FC = () => {
       </main>
 
       {/* Cultural Respect & Editorial Footer */}
-      <footer className="bg-[#FFFDF9] border-t border-[#E8D3AC] py-6 text-center text-xs text-[#9C8E87] no-print">
+      <footer className="bg-[#100C13] border-t border-[#35283A] py-6 text-center text-xs text-[#9C8E87] no-print">
         <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <img src="/artwork/marigold.svg" alt="" className="w-5 h-5" />
-            <span className="font-serif font-bold text-[#332A27]">Siempre</span>
-            <span>— A Living Digital Ofrenda</span>
+            <img src="/artwork/marigold.svg" alt="" className="w-5 h-5 drop-shadow-[0_0_8px_rgba(245,166,35,0.6)]" />
+            <span className="font-serif font-bold text-[#F7EFE2]">Siempre</span>
+            <span className="text-[#B8A6B6]">— A Living Digital Ofrenda</span>
           </div>
-          <div className="font-serif italic text-[#713B55]">
+          <div className="font-serif italic text-[#FFB733]">
             "Some stories deserve to stay."
           </div>
-          <div>
+          <div className="text-[#8E7C8E]">
             Private • Local-First • Open-Source AI
           </div>
         </div>

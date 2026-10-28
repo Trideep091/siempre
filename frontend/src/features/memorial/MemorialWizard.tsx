@@ -330,20 +330,20 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8 pb-24">
+    <div className="max-w-3xl mx-auto px-4 py-8 pb-24 text-[#F7EFE2]">
       
       {/* Header & Steps Progress Bar */}
       <div className="text-center mb-8">
-        <h2 className="font-serif text-3xl font-bold text-[#332A27]">
+        <h2 className="font-serif text-3xl font-bold text-[#F7EFE2]">
           Create a Remembrance
         </h2>
-        <p className="text-sm font-serif italic text-[#713B55] mt-1">
-          Draft saved locally. Take your time—every small memory matters.
+        <p className="text-sm font-serif italic text-[#FFB733] mt-1">
+          Draft saved locally in the quiet night. Take your time—every memory matters.
         </p>
 
         {/* Step Indicators */}
         <div className="flex items-center justify-between max-w-xl mx-auto mt-6 relative">
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-[#E8D3AC] -z-0" />
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 w-full bg-[#35283A] -z-0" />
           {steps.map((s) => {
             const Icon = s.icon;
             const isDone = currentStep > s.num;
@@ -358,15 +358,15 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                 <div 
                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                     isDone 
-                      ? 'bg-[#36775B] text-white shadow-sm' 
+                      ? 'bg-[#2E8560] text-white shadow-sm' 
                       : isCurrent 
-                        ? 'bg-[#F3A623] text-[#332A27] ring-4 ring-[#FFF3D8] shadow-md font-bold' 
-                        : 'bg-[#FFFAEE] text-[#9C8E87] border border-[#E8D3AC]'
+                        ? 'bg-[#F5A623] text-[#1A0F00] ring-4 ring-[#F5A623]/25 shadow-[0_0_15px_rgba(245,166,35,0.4)] font-bold' 
+                        : 'bg-[#18131D] text-[#7E6C7D] border border-[#382C3D]'
                   }`}
                 >
                   {isDone ? <Check size={18} /> : <Icon size={18} />}
                 </div>
-                <span className={`text-[11px] font-medium mt-1.5 hidden sm:block ${isCurrent ? 'text-[#332A27] font-bold' : 'text-[#9C8E87]'}`}>
+                <span className={`text-[11px] font-medium mt-1.5 hidden sm:block ${isCurrent ? 'text-[#FFB733] font-bold' : 'text-[#7E6C7D]'}`}>
                   {s.label}
                 </span>
               </button>
@@ -376,23 +376,23 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
       </div>
 
       {errorMsg && (
-        <div className="bg-[#DC6073]/15 border border-[#DC6073] text-[#9C2738] rounded-xl p-3.5 mb-6 text-sm flex items-center gap-2">
+        <div className="bg-[#E64264]/20 border border-[#E64264] text-[#FFA3B5] rounded-xl p-3.5 mb-6 text-sm flex items-center gap-2">
           <AlertCircle size={18} />
           <span>{errorMsg}</span>
         </div>
       )}
 
       {/* Main Form Body */}
-      <div className="paper-card p-6 sm:p-8 bg-[#FFFAEE]">
+      <div className="paper-card p-6 sm:p-8 bg-[#151119] border-2 border-[#382C3D] rounded-2xl shadow-2xl">
         
         {/* STEP 1: THE PERSON */}
         {currentStep === 1 && (
           <div className="space-y-6">
-            <div className="border-b border-[#E8D3AC] pb-3 mb-4">
-              <h3 className="font-serif text-xl font-bold text-[#332A27]">
+            <div className="border-b border-[#35283A] pb-3 mb-4">
+              <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
                 Step 1: The Person You Are Remembering
               </h3>
-              <p className="text-xs text-[#6B5D57] mt-0.5">
+              <p className="text-xs text-[#B8A6B6] mt-0.5">
                 Exact dates are optional. Enter whatever feels meaningful to you.
               </p>
             </div>
@@ -400,14 +400,14 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
             <div className="flex flex-col sm:flex-row gap-6 items-start">
               {/* Portrait Upload / Preview Frame */}
               <div className="w-full sm:w-44 shrink-0 flex flex-col items-center">
-                <div className="w-36 h-48 bg-[#FFF3D8] border-2 border-dashed border-[#E8D3AC] rounded-lg overflow-hidden flex flex-col items-center justify-center relative shadow-sm group">
+                <div className="w-36 h-48 bg-[#120D17] border-2 border-dashed border-[#3D2E42] rounded-lg overflow-hidden flex flex-col items-center justify-center relative shadow-sm group">
                   {portraitPreview ? (
                     <img src={portraitPreview} alt="Preview" className="w-full h-full object-cover" />
                   ) : (
-                    <div className="text-center p-3 text-[#9C8E87]">
+                    <div className="text-center p-3 text-[#7E6C7D]">
                       <Upload size={28} className="mx-auto mb-1 opacity-70" />
                       <span className="text-[11px] font-serif block">Upload Portrait</span>
-                      <span className="text-[9px] block text-[#B8A082]">(JPG, PNG, WebP)</span>
+                      <span className="text-[9px] block text-[#7E6C7D]">(JPG, PNG, WebP)</span>
                     </div>
                   )}
                   <input
@@ -422,7 +422,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                   <button 
                     type="button" 
                     onClick={() => { setPortraitFile(null); setPortraitPreview(null); }}
-                    className="text-[11px] text-[#DC6073] underline mt-1.5 cursor-pointer"
+                    className="text-[11px] text-[#FFA3B5] hover:text-[#E64264] underline mt-1.5 cursor-pointer"
                   >
                     Remove photo
                   </button>
@@ -509,18 +509,18 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
         {/* STEP 2: THE MEMORIES */}
         {currentStep === 2 && (
           <div className="space-y-6">
-            <div className="border-b border-[#E8D3AC] pb-3 mb-4">
-              <h3 className="font-serif text-xl font-bold text-[#332A27]">
+            <div className="border-b border-[#382C3D] pb-3 mb-4">
+              <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
                 Step 2: Cherished Memories & Notes
               </h3>
-              <p className="text-xs text-[#6B5D57] mt-0.5">
+              <p className="text-xs text-[#B8A6B6] mt-0.5">
                 Capture the little details: their warmth, sayings, laughter, and lessons.
               </p>
             </div>
 
             {/* Prompt Selector Pills */}
-            <div className="bg-[#FFF3D8]/60 p-3.5 rounded-xl border border-[#E8D3AC]">
-              <span className="text-xs font-semibold text-[#713B55] block mb-2">
+            <div className="bg-[#1A1420] p-3.5 rounded-xl border border-[#382C3D]">
+              <span className="text-xs font-semibold text-[#F5A623] block mb-2">
                 Click a prompt to add a new memory note:
               </span>
               <div className="flex flex-wrap gap-2">
@@ -537,7 +537,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                     onClick={() => {
                       setMemories([...memories, { id: Date.now().toString(), prompt: promptText, text: '' }]);
                     }}
-                    className="text-xs bg-[#FFFDF9] hover:bg-[#F3A623] hover:text-[#332A27] text-[#6B5D57] border border-[#E8D3AC] px-3 py-1.5 rounded-full transition-colors font-serif"
+                    className="text-xs bg-[#241B2C] hover:bg-[#F5A623] hover:text-[#0C0A0E] text-[#D8C7D8] border border-[#3D2E44] px-3 py-1.5 rounded-full transition-colors font-serif cursor-pointer"
                   >
                     + {promptText}
                   </button>
@@ -548,7 +548,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
             {/* Memories List */}
             <div className="space-y-4">
               {memories.map((m, idx) => (
-                <div key={m.id} className="bg-[#FFFDF9] p-4 rounded-xl border border-[#E8D3AC] shadow-sm relative group">
+                <div key={m.id} className="bg-[#18131E] p-4 rounded-xl border border-[#382C3D] shadow-sm relative group">
                   <div className="flex items-center justify-between mb-2">
                     <input
                       type="text"
@@ -559,13 +559,13 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                         setMemories(updated);
                       }}
                       placeholder="Prompt / Memory Title"
-                      className="font-serif text-sm font-semibold text-[#713B55] bg-transparent border-b border-transparent hover:border-[#E8D3AC] focus:border-[#F3A623] outline-none w-3/4"
+                      className="font-serif text-sm font-semibold text-[#FFB733] bg-transparent border-b border-transparent hover:border-[#382C3D] focus:border-[#F5A623] outline-none w-3/4"
                     />
                     {memories.length > 1 && (
                       <button
                         type="button"
                         onClick={() => setMemories(memories.filter(item => item.id !== m.id))}
-                        className="text-[#9C8E87] hover:text-[#DC6073] p-1"
+                        className="text-[#8E7C8E] hover:text-[#E64264] p-1 cursor-pointer transition-colors"
                         title="Delete note"
                       >
                         <Trash2 size={15} />
@@ -600,11 +600,11 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
         {/* STEP 3: THEIR FAVORITES */}
         {currentStep === 3 && (
           <div className="space-y-6">
-            <div className="border-b border-[#E8D3AC] pb-3 mb-4">
-              <h3 className="font-serif text-xl font-bold text-[#332A27]">
+            <div className="border-b border-[#382C3D] pb-3 mb-4">
+              <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
                 Step 3: Their Favorites & Keepsakes
               </h3>
-              <p className="text-xs text-[#6B5D57] mt-0.5">
+              <p className="text-xs text-[#B8A6B6] mt-0.5">
                 Every ofrenda includes the things they loved in life—foods, songs, places, and objects.
               </p>
             </div>
@@ -628,7 +628,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                     }}
                     className="btn btn-secondary btn-sm flex items-center gap-1.5"
                   >
-                    <Icon size={14} className="text-[#F3A623]" />
+                    <Icon size={14} className="text-[#F5A623]" />
                     <span>+ {cat.label}</span>
                   </button>
                 );
@@ -638,7 +638,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
             {/* Favorites List */}
             <div className="space-y-4">
               {favorites.map((fav, idx) => (
-                <div key={fav.id} className="bg-[#FFFDF9] p-4 rounded-xl border border-[#E8D3AC] shadow-sm">
+                <div key={fav.id} className="bg-[#18131E] p-4 rounded-xl border border-[#382C3D] shadow-sm">
                   <div className="flex items-center justify-between gap-3 mb-2">
                     <select
                       value={fav.type}
@@ -647,7 +647,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                         updated[idx].type = e.target.value;
                         setFavorites(updated);
                       }}
-                      className="text-xs font-semibold bg-[#FFF3D8] border border-[#E8D3AC] rounded-md px-2 py-1 text-[#713B55]"
+                      className="text-xs font-semibold bg-[#241B2C] border border-[#3D2E44] rounded-md px-2.5 py-1 text-[#FFB733]"
                     >
                       <option value="food">🍲 Favorite Food</option>
                       <option value="song">🎵 Favorite Song / Music</option>
@@ -660,7 +660,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                       <button
                         type="button"
                         onClick={() => setFavorites(favorites.filter(item => item.id !== fav.id))}
-                        className="text-[#9C8E87] hover:text-[#DC6073] p-1"
+                        className="text-[#8E7C8E] hover:text-[#E64264] p-1 cursor-pointer transition-colors"
                         title="Remove"
                       >
                         <Trash2 size={15} />
@@ -704,7 +704,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                       setFavorites(updated);
                     }}
                     placeholder="Why did this matter to them? (e.g. baked every holiday, sang while driving...)"
-                    className="form-input text-xs text-[#6B5D57]"
+                    className="form-input text-xs text-[#B8A6B6]"
                   />
                 </div>
               ))}
@@ -715,11 +715,11 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
         {/* STEP 4: STORIES & AUDIO */}
         {currentStep === 4 && (
           <div className="space-y-6">
-            <div className="border-b border-[#E8D3AC] pb-3 mb-4">
-              <h3 className="font-serif text-xl font-bold text-[#332A27]">
+            <div className="border-b border-[#382C3D] pb-3 mb-4">
+              <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
                 Step 4: Spoken Story & Family Voice
               </h3>
-              <p className="text-xs text-[#6B5D57] mt-0.5">
+              <p className="text-xs text-[#B8A6B6] mt-0.5">
                 Record a story using your browser microphone or upload an audio file. You can also write it out.
               </p>
             </div>
@@ -748,8 +748,8 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
             </div>
 
             {/* Audio Recording or Upload Box */}
-            <div className="bg-[#FFFDF9] border border-[#E8D3AC] rounded-xl p-5 shadow-sm">
-              <span className="text-sm font-semibold text-[#332A27] block mb-3">
+            <div className="bg-[#18131E] border border-[#382C3D] rounded-xl p-5 shadow-sm">
+              <span className="text-sm font-semibold text-[#F7EFE2] block mb-3">
                 Original Audio Recording
               </span>
 
@@ -759,9 +759,9 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                   <button
                     type="button"
                     onClick={startRecording}
-                    className="btn btn-secondary flex items-center gap-2 border-[#E8D3AC] hover:border-[#DC6073] hover:text-[#DC6073]"
+                    className="btn btn-secondary flex items-center gap-2 border-[#382C3D] hover:border-[#E64264] hover:text-[#E64264]"
                   >
-                    <Mic size={17} className="text-[#DC6073]" />
+                    <Mic size={17} className="text-[#E64264]" />
                     <span>Record Voice Note</span>
                   </button>
                 ) : (
@@ -778,7 +778,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                   </div>
                 )}
 
-                <span className="text-xs text-[#9C8E87]">— or —</span>
+                <span className="text-xs text-[#8E7C8E]">— or —</span>
 
                 {/* File Upload Input */}
                 <label className="btn btn-outline btn-sm cursor-pointer flex items-center gap-1.5">
@@ -794,14 +794,14 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
               </div>
 
               {audioFile && (
-                <div className="mt-3.5 pt-3 border-t border-[#E8D3AC] flex items-center justify-between text-xs text-[#36775B]">
+                <div className="mt-3.5 pt-3 border-t border-[#382C3D] flex items-center justify-between text-xs text-[#4ECA96]">
                   <span className="font-medium">
                     ✓ Audio attached {audioDuration ? `(${audioDuration}s)` : ''}
                   </span>
                   <button 
                     type="button" 
                     onClick={() => { setAudioFile(null); setAudioDuration(null); }}
-                    className="text-[#DC6073] underline cursor-pointer"
+                    className="text-[#E64264] underline cursor-pointer"
                   >
                     Remove audio
                   </button>
@@ -828,11 +828,11 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
         {/* STEP 5: THE ALTAR STYLING */}
         {currentStep === 5 && (
           <div className="space-y-6">
-            <div className="border-b border-[#E8D3AC] pb-3 mb-4">
-              <h3 className="font-serif text-xl font-bold text-[#332A27]">
+            <div className="border-b border-[#382C3D] pb-3 mb-4">
+              <h3 className="font-serif text-xl font-bold text-[#F7EFE2]">
                 Step 5: Altar Style & Traditions
               </h3>
-              <p className="text-xs text-[#6B5D57] mt-0.5">
+              <p className="text-xs text-[#B8A6B6] mt-0.5">
                 Customize the aesthetic of your ofrenda. You can choose traditional Día de los Muertos elements or a serene personal layout.
               </p>
             </div>
@@ -846,14 +846,14 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                   onClick={() => setStyleVariant('diadelosmuertos')}
                   className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
                     styleVariant === 'diadelosmuertos'
-                      ? 'border-[#F3A623] bg-[#FFF3D8] shadow-sm ring-2 ring-[#F3A623]/30'
-                      : 'border-[#E8D3AC] bg-[#FFFDF9]'
+                      ? 'border-[#F5A623] bg-[#241818] shadow-[0_0_15px_rgba(245,166,35,0.15)] ring-1 ring-[#F5A623]'
+                      : 'border-[#382C3D] bg-[#18131E] hover:border-[#382C3D]/80'
                   }`}
                 >
-                  <span className="font-serif font-bold text-sm text-[#332A27] block">
+                  <span className="font-serif font-bold text-sm text-[#F7EFE2] block">
                     🌼 Día de los Muertos Ofrenda
                   </span>
-                  <span className="text-xs text-[#6B5D57] block mt-1">
+                  <span className="text-xs text-[#B8A6B6] block mt-1">
                     Warm marigolds, papel picado garland, vigils, pan de muerto, and festive vibrant honoring of the journey home.
                   </span>
                 </button>
@@ -863,14 +863,14 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                   onClick={() => setStyleVariant('general')}
                   className={`p-4 rounded-xl border text-left cursor-pointer transition-all ${
                     styleVariant === 'general'
-                      ? 'border-[#713B55] bg-[#713B55]/10 shadow-sm ring-2 ring-[#713B55]/30'
-                      : 'border-[#E8D3AC] bg-[#FFFDF9]'
+                      ? 'border-[#38A9A0] bg-[#142322] shadow-[0_0_15px_rgba(56,169,160,0.15)] ring-1 ring-[#38A9A0]'
+                      : 'border-[#382C3D] bg-[#18131E] hover:border-[#382C3D]/80'
                   }`}
                 >
-                  <span className="font-serif font-bold text-sm text-[#332A27] block">
+                  <span className="font-serif font-bold text-sm text-[#F7EFE2] block">
                     🕊️ Serene Personal Memorial
                   </span>
-                  <span className="text-xs text-[#6B5D57] block mt-1">
+                  <span className="text-xs text-[#B8A6B6] block mt-1">
                     Quiet, botanical, and minimalist remembrance focused purely on photographs, quiet candlelight, and written stories.
                   </span>
                 </button>
@@ -882,10 +882,10 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
               <label className="form-label">Color Palette</label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {[
-                  { id: 'warm-marigold', label: 'Warm Marigold', hex: '#F3A623' },
-                  { id: 'aged-parchment', label: 'Aged Parchment', hex: '#E8D3AC' },
-                  { id: 'night-vigil', label: 'Night Vigil (Berry)', hex: '#713B55' },
-                  { id: 'botanical-sage', label: 'Botanical Sage', hex: '#36775B' },
+                  { id: 'warm-marigold', label: 'Warm Marigold', hex: '#F5A623' },
+                  { id: 'aged-parchment', label: 'Mystic Obsidian', hex: '#3D2E44' },
+                  { id: 'night-vigil', label: 'Night Vigil (Berry)', hex: '#9B2D62' },
+                  { id: 'botanical-sage', label: 'Spirit Turquoise', hex: '#38A9A0' },
                 ].map((p) => (
                   <button
                     key={p.id}
@@ -893,29 +893,29 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                     onClick={() => setPalette(p.id)}
                     className={`p-3 rounded-lg border text-center cursor-pointer transition-all ${
                       palette === p.id 
-                        ? 'border-[#332A27] bg-[#FFFDF9] shadow-sm font-bold ring-2 ring-[#F3A623]' 
-                        : 'border-[#E8D3AC] bg-[#FFFDF9]/60'
+                        ? 'border-[#F5A623] bg-[#241B2C] shadow-sm font-bold ring-2 ring-[#F5A623]' 
+                        : 'border-[#382C3D] bg-[#18131E]'
                     }`}
                   >
-                    <div className="w-6 h-6 rounded-full mx-auto mb-1.5 border border-black/10" style={{ backgroundColor: p.hex }} />
-                    <span className="text-xs text-[#332A27]">{p.label}</span>
+                    <div className="w-6 h-6 rounded-full mx-auto mb-1.5 border border-white/20" style={{ backgroundColor: p.hex }} />
+                    <span className="text-xs text-[#F7EFE2]">{p.label}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* Decorative Toggles */}
-            <div className="bg-[#FFFDF9] p-4 rounded-xl border border-[#E8D3AC] space-y-3">
-              <span className="text-xs font-semibold text-[#713B55] block">
+            <div className="bg-[#18131E] p-4 rounded-xl border border-[#382C3D] space-y-3">
+              <span className="text-xs font-semibold text-[#FFB733] block">
                 Decorative Altar Elements
               </span>
-              <div className="flex flex-wrap gap-4 text-xs text-[#332A27]">
+              <div className="flex flex-wrap gap-4 text-xs text-[#F7EFE2]">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={showPapelPicado}
                     onChange={(e) => setShowPapelPicado(e.target.checked)}
-                    className="accent-[#F3A623]"
+                    className="accent-[#F5A623]"
                   />
                   <span>Papel Picado Banners</span>
                 </label>
@@ -924,7 +924,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                     type="checkbox"
                     checked={showCandles}
                     onChange={(e) => setShowCandles(e.target.checked)}
-                    className="accent-[#F3A623]"
+                    className="accent-[#F5A623]"
                   />
                   <span>Flickering Vigil Candles</span>
                 </label>
@@ -933,7 +933,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
                     type="checkbox"
                     checked={showMarigolds}
                     onChange={(e) => setShowMarigolds(e.target.checked)}
-                    className="accent-[#F3A623]"
+                    className="accent-[#F5A623]"
                   />
                   <span>Marigold Flowers</span>
                 </label>
@@ -943,7 +943,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
         )}
 
         {/* Wizard Navigation Footer */}
-        <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#E8D3AC]">
+        <div className="flex items-center justify-between pt-6 mt-6 border-t border-[#382C3D]">
           {currentStep > 1 ? (
             <button
               type="button"
@@ -986,7 +986,7 @@ export const MemorialWizard: React.FC<MemorialWizardProps> = ({ onComplete, onCa
             >
               {isSubmitting ? (
                 <>
-                  <span className="inline-block w-4 h-4 border-2 border-[#332A27] border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block w-4 h-4 border-2 border-[#151119] border-t-transparent rounded-full animate-spin" />
                   <span>Creating Ofrenda...</span>
                 </>
               ) : (

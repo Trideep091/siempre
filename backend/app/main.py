@@ -79,3 +79,26 @@ async def health_check():
         "whisper_model_size": settings.WHISPER_MODEL_SIZE,
     })
 
+# Static Frontend mounting for unified production deployment
+from pathlib import Path
+from fastapi.responses import FileResponse
+
+frontend_dist = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
+
+if frontend_dist.exists() and (frontend_dist / "index.html").exists():
+    if (frontend_dist / "assets").exists():
+        app.mount("/assets", StaticFiles(directory=str(frontend_dist / "assets")), name="assets")
+    if (frontend_dist / "artwork").exists():
+        app.mount("/artwork", StaticFiles(directory=str(frontend_dist / "artwork")), name="artwork")
+
+    @app.api_route("/{full_path:path}", methods=["GET", "HEAD"])
+    async def serve_spa(full_path: str):
+        # Exclude /api and /media paths from SPA catch-all
+        if full_path.startswith("api/") or full_path.startswith("media/"):
+            return JSONResponse({"detail": "Not found"}, status_code=404)
+        file_candidate = frontend_dist / full_path
+        if full_path and file_candidate.is_file():
+            return FileResponse(file_candidate)
+        return FileResponse(frontend_dist / "index.html")
+
+

@@ -85,15 +85,51 @@ siempre/
 
 ---
 
+## Deployment & Production Architecture
+
+### Why Are There 2 Tasks During Development?
+During local active development, modern web applications run two processes:
+1. **Frontend Dev Server (`vite` on port 5173):** Provides lightning-fast Hot Module Replacement (HMR) so UI changes reflect instantly without full browser reloads.
+2. **Backend API Server (`fastapi/uvicorn` on port 8000):** Executes database operations, audio handling, and local AI queries.
+
+### Single-Service Production Deployment (1 Process)
+For deploying to production (such as a local server, VPS, Docker, Render, Railway, or Fly.io), you **do not run two separate processes**.
+Instead:
+1. The frontend is pre-compiled into static HTML, JavaScript, and CSS in `frontend/dist` (`npm run build`).
+2. FastAPI mounts `frontend/dist` directly at the root `/` URL and serves both the React application and all `/api` endpoints simultaneously.
+
+#### Option A: One-Command Deployment Script
+```bash
+./deploy.sh
+```
+This automatically builds the frontend and boots the unified single-process FastAPI server on `http://0.0.0.0:8000`.
+
+#### Option B: Docker Container (Single Container)
+```bash
+docker compose up --build
+```
+Or with docker directly:
+```bash
+docker build -t siempre:latest .
+docker run -p 8000:8000 -v siempre_data:/app/data siempre:latest
+```
+Access the application at `http://localhost:8000`.
+
+---
+
 ## Quickstart Guide
 
-### 1. Automated Start (Recommended)
-
-Simply run the root startup script:
+### 1. Development Mode (Hot Reload)
 ```bash
 ./start.sh
 ```
-The script will verify your Python and Node environments, install any missing dependencies, start the backend on `http://127.0.0.1:8000`, and start the frontend on `http://localhost:5173`.
+Runs the backend on port 8000 and the Vite hot-reloading dev server on port 5173.
+
+### 2. Production Mode (Single Port 8000)
+```bash
+./deploy.sh
+```
+Builds the production bundle and runs the entire app on `http://127.0.0.1:8000`.
 
 ### 2. Manual Startup
 

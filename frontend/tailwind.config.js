@@ -7,42 +7,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        'warm-paper': '#FFF3D8',
-        'aged-parchment': '#E8D3AC',
-        'soft-cream': '#FFFAEE',
+        'warm-paper': '#0C0A0E',
+        'aged-parchment': '#221A26',
+        'soft-cream': '#18131D',
+        'crypt-card': '#1E1823',
+        'crypt-hover': '#282030',
+        'crypt-border': '#362A3B',
         marigold: {
-          light: '#FBE6B3',
-          DEFAULT: '#F3A623',
-          dark: '#C97D09',
+          light: '#FFD175',
+          DEFAULT: '#F5A623',
+          dark: '#E08E0E',
         },
         tangerine: {
-          light: '#FAD4C6',
-          DEFAULT: '#ED7047',
+          light: '#FFA085',
+          DEFAULT: '#FF5E36',
         },
         coral: {
-          light: '#F7D3D9',
-          DEFAULT: '#DC6073',
-          dark: '#9C2738',
+          light: '#FFA3B5',
+          DEFAULT: '#E64264',
+          dark: '#B51C3E',
         },
         berry: {
-          light: '#E0C7D3',
-          DEFAULT: '#713B55',
-          dark: '#4A2337',
+          light: '#E87EB3',
+          DEFAULT: '#9B2D62',
+          dark: '#63153C',
         },
         botanical: {
-          light: '#CDE3D9',
-          DEFAULT: '#36775B',
-          dark: '#1F4D3B',
+          light: '#6FE0AC',
+          DEFAULT: '#2E8560',
+          dark: '#184F38',
         },
         turquoise: {
-          light: '#D2ECE9',
-          DEFAULT: '#4A9C96',
-          dark: '#1F5A56',
+          light: '#7EE5DC',
+          DEFAULT: '#38A9A0',
+          dark: '#1B5B56',
         },
         ink: {
-          DEFAULT: '#332A27',
-          muted: '#6B5D57',
-          light: '#9C8E87',
+          DEFAULT: '#F7EFE2',
+          muted: '#B8A6B6',
+          light: '#7E6C7D',
         },
       },
       fontFamily: {
@@ -51,12 +54,12 @@ export default {
         hand: ['Caveat', 'Patrick Hand', 'cursive'],
       },
       boxShadow: {
-        'paper': '0 4px 12px rgba(51, 42, 39, 0.08), 0 1px 3px rgba(51, 42, 39, 0.06)',
-        'paper-lifted': '0 10px 24px rgba(51, 42, 39, 0.12), 0 3px 6px rgba(51, 42, 39, 0.08)',
-        'altar': '0 16px 36px rgba(51, 42, 39, 0.16), 0 6px 12px rgba(51, 42, 39, 0.1)',
+        'paper': '0 6px 18px rgba(0, 0, 0, 0.6), 0 0 15px rgba(245, 166, 35, 0.05)',
+        'paper-lifted': '0 12px 32px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 166, 35, 0.15)',
+        'altar': '0 20px 48px rgba(0, 0, 0, 0.9), 0 0 40px rgba(245, 166, 35, 0.2)',
+        'candle-glow': '0 0 35px rgba(245, 166, 35, 0.55), 0 0 10px rgba(255, 94, 54, 0.4)',
       }
     },
   },
   plugins: [],
 }
-

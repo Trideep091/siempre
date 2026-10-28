@@ -116,36 +116,36 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 pb-24 text-[#F7EFE2]">
       
       {/* Header */}
-      <div className="border-b border-[#E8D3AC] pb-4 mb-6">
+      <div className="border-b border-[#382C3D] pb-4 mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-[#713B55] mb-1">
+            <div className="flex items-center gap-2 text-[#F5A623] mb-1">
               <Sparkles size={18} />
               <span className="font-serif font-bold text-sm tracking-wide uppercase">
                 Ethical Remembrance Studio
               </span>
             </div>
-            <h1 className="font-serif text-3xl font-bold text-[#332A27]">
+            <h1 className="font-serif text-3xl font-bold text-[#F7EFE2]">
               Preserving Memories for {memorial.name}
             </h1>
-            <p className="text-sm text-[#6B5D57] font-serif italic mt-0.5">
+            <p className="text-sm text-[#B8A6B6] font-serif italic mt-0.5">
               Drafted strictly from your own family memories. The model never fabricates quotes or pretends to speak for loved ones.
             </p>
           </div>
 
           {/* AI Connection Status Banner */}
-          <div className="bg-[#FFFDF9] border border-[#E8D3AC] rounded-xl px-4 py-2.5 shadow-xs flex items-center gap-3">
-            <span className={`w-3 h-3 rounded-full shrink-0 ${aiStatus?.local_inference_ready ? 'bg-emerald-500' : 'bg-amber-400'}`} />
+          <div className="bg-[#18131E] border border-[#382C3D] rounded-xl px-4 py-2.5 shadow-xs flex items-center gap-3">
+            <span className={`w-3 h-3 rounded-full shrink-0 ${aiStatus?.local_inference_ready ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-amber-400'}`} />
             <div className="text-left text-xs">
-              <span className="font-bold text-[#332A27] block">
+              <span className="font-bold text-[#F7EFE2] block">
                 {aiStatus?.local_inference_ready ? `Ollama (${aiStatus.configured_model}) Ready` : 'Local AI Offline'}
               </span>
               <button
                 onClick={onNavigateToSettings}
-                className="text-[11px] text-[#713B55] underline hover:text-[#332A27] cursor-pointer"
+                className="text-[11px] text-[#F5A623] underline hover:text-[#FFB733] cursor-pointer"
               >
                 Model Settings & Guide
               </button>
@@ -155,12 +155,12 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
       </div>
 
       {errorMsg && (
-        <div className="bg-[#DC6073]/15 border border-[#DC6073] rounded-xl p-4 mb-6 text-sm text-[#9C2738] flex items-start gap-3">
+        <div className="bg-[#DC6073]/15 border border-[#DC6073] rounded-xl p-4 mb-6 text-sm text-[#FFA3CF] flex items-start gap-3">
           <AlertCircle size={20} className="shrink-0 mt-0.5" />
           <div className="flex-1">
             <span className="font-bold block mb-1">Local AI Engine Unavailable</span>
             <p className="text-xs leading-relaxed">{errorMsg}</p>
-            <div className="mt-2 text-xs bg-white/80 p-2.5 rounded font-mono text-[#332A27]">
+            <div className="mt-2 text-xs bg-[#18131E] border border-[#DC6073]/30 p-2.5 rounded font-mono text-[#F7EFE2]">
               Terminal command: <code>ollama run {aiStatus?.configured_model || 'llama3.2:3b'}</code>
             </div>
           </div>
@@ -174,9 +174,9 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
         <div className="lg:col-span-5 space-y-6">
           
           {/* Format & Tone Selection */}
-          <div className="paper-card p-5 bg-[#FFFAEE]">
-            <h3 className="font-serif font-bold text-base text-[#332A27] mb-3 flex items-center gap-2">
-              <Sliders size={16} className="text-[#713B55]" />
+          <div className="paper-card p-5 bg-[#151119] border border-[#382C3D]">
+            <h3 className="font-serif font-bold text-base text-[#F7EFE2] mb-3 flex items-center gap-2">
+              <Sliders size={16} className="text-[#F5A623]" />
               <span>Format & Emotional Tone</span>
             </h3>
 
@@ -215,8 +215,8 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                       onClick={() => setTone(t.id)}
                       className={`py-1.5 px-2 rounded-lg text-xs font-serif transition-colors cursor-pointer ${
                         tone === t.id
-                          ? 'bg-[#713B55] text-white font-bold shadow-xs'
-                          : 'bg-[#FFFDF9] border border-[#E8D3AC] text-[#6B5D57] hover:bg-[#FFF3D8]'
+                          ? 'bg-[#F5A623] text-[#0C0A0E] font-bold shadow-[0_0_10px_rgba(245,166,35,0.4)]'
+                          : 'bg-[#241B2C] border border-[#3D2E44] text-[#D8C7D8] hover:bg-[#2F233A]'
                       }`}
                     >
                       {t.label}
@@ -226,15 +226,15 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
               </div>
 
               {/* Strict Phrasing Toggle */}
-              <div className="pt-2 border-t border-[#E8D3AC]/70">
+              <div className="pt-2 border-t border-[#382C3D]">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="checkbox"
                     checked={useWordsClosely}
                     onChange={(e) => setUseWordsClosely(e.target.checked)}
-                    className="accent-[#713B55]"
+                    className="accent-[#F5A623]"
                   />
-                  <span className="text-xs text-[#332A27] font-medium">
+                  <span className="text-xs text-[#F7EFE2] font-medium">
                     Use my words more closely (minimal stylistic rewriting)
                   </span>
                 </label>
@@ -255,10 +255,10 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
           </div>
 
           {/* Source Memories Selection */}
-          <div className="paper-card p-5 bg-[#FFFAEE]">
+          <div className="paper-card p-5 bg-[#151119] border border-[#382C3D]">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-serif font-bold text-base text-[#332A27] flex items-center gap-2">
-                <Heart size={16} className="text-[#DC6073]" />
+              <h3 className="font-serif font-bold text-base text-[#F7EFE2] flex items-center gap-2">
+                <Heart size={16} className="text-[#E64264]" />
                 <span>Source Notes & Memories ({selectedItemIds.length + selectedStoryIds.length} selected)</span>
               </h3>
               <button
@@ -272,13 +272,13 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                     setSelectedStoryIds(memorial.stories.map(s => s.id));
                   }
                 }}
-                className="text-[11px] text-[#713B55] underline cursor-pointer"
+                className="text-[11px] text-[#F5A623] underline cursor-pointer"
               >
                 {selectedItemIds.length > 0 ? 'Deselect all' : 'Select all'}
               </button>
             </div>
 
-            <p className="text-xs text-[#6B5D57] mb-3 leading-relaxed">
+            <p className="text-xs text-[#B8A6B6] mb-3 leading-relaxed">
               Select which altar items, favorite foods, songs, and audio transcripts the model is allowed to ground into:
             </p>
 
@@ -289,22 +289,22 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                   key={it.id}
                   className={`flex items-start gap-2.5 p-2 rounded-lg border text-xs cursor-pointer transition-colors ${
                     selectedItemIds.includes(it.id)
-                      ? 'bg-[#FFF3D8] border-[#F3A623] text-[#332A27]'
-                      : 'bg-[#FFFDF9] border-[#E8D3AC] text-[#9C8E87]'
+                      ? 'bg-[#261E18] border-[#F5A623] text-[#F7EFE2]'
+                      : 'bg-[#18131E] border-[#382C3D] text-[#8E7C8E]'
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={selectedItemIds.includes(it.id)}
                     onChange={() => toggleItem(it.id)}
-                    className="accent-[#F3A623] mt-0.5"
+                    className="accent-[#F5A623] mt-0.5"
                   />
                   <div className="flex-1">
-                    <span className="font-serif font-bold block">
+                    <span className="font-serif font-bold block text-[#FFB733]">
                       [{it.item_type}] {it.title}
                     </span>
                     {it.description && (
-                      <span className="text-[11px] text-[#6B5D57] line-clamp-1 block">
+                      <span className="text-[11px] text-[#B8A6B6] line-clamp-1 block">
                         {it.description}
                       </span>
                     )}
@@ -318,22 +318,22 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                   key={st.id}
                   className={`flex items-start gap-2.5 p-2 rounded-lg border text-xs cursor-pointer transition-colors ${
                     selectedStoryIds.includes(st.id)
-                      ? 'bg-[#E0F2E9] border-[#36775B] text-[#1F4D3B]'
-                      : 'bg-[#FFFDF9] border-[#E8D3AC] text-[#9C8E87]'
+                      ? 'bg-[#142322] border-[#38A9A0] text-[#71E6DA]'
+                      : 'bg-[#18131E] border-[#382C3D] text-[#8E7C8E]'
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={selectedStoryIds.includes(st.id)}
                     onChange={() => toggleStory(st.id)}
-                    className="accent-[#36775B] mt-0.5"
+                    className="accent-[#38A9A0] mt-0.5"
                   />
                   <div className="flex-1">
-                    <span className="font-serif font-bold block">
+                    <span className="font-serif font-bold block text-[#38A9A0]">
                       [Spoken Story] {st.title}
                     </span>
                     {st.transcript && (
-                      <span className="text-[11px] text-[#36775B] line-clamp-1 block">
+                      <span className="text-[11px] text-[#9EECE5] line-clamp-1 block">
                         "{st.transcript}"
                       </span>
                     )}
@@ -351,7 +351,7 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
             >
               {isGenerating ? (
                 <>
-                  <span className="inline-block w-4 h-4 border-2 border-[#332A27] border-t-transparent rounded-full animate-spin" />
+                  <span className="inline-block w-4 h-4 border-2 border-[#151119] border-t-transparent rounded-full animate-spin" />
                   <span>Weaving Remembrance...</span>
                 </>
               ) : (
@@ -368,14 +368,14 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
         {/* Right Column: Draft Editor & Grounding Transparency (7 cols) */}
         <div className="lg:col-span-7 space-y-4">
           
-          <div className="paper-card p-6 bg-[#FFFAEE]">
+          <div className="paper-card p-6 bg-[#151119] border border-[#382C3D]">
             
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E8D3AC]">
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#382C3D]">
               <div>
                 <span className="badge badge-berry text-[10px]">
                   AI-Generated Remembrance Draft (Editable)
                 </span>
-                <h3 className="font-serif text-lg font-bold text-[#332A27] mt-1">
+                <h3 className="font-serif text-lg font-bold text-[#F7EFE2] mt-1">
                   Draft Composition
                 </h3>
               </div>
@@ -387,7 +387,7 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                   className="btn btn-secondary btn-sm text-xs flex items-center gap-1"
                   title="Copy text"
                 >
-                  {copied ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                  {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
                   <span>{copied ? 'Copied' : 'Copy'}</span>
                 </button>
 
@@ -409,21 +409,21 @@ export const RemembranceStudio: React.FC<RemembranceStudioProps> = ({
                 value={generatedDraft}
                 onChange={(e) => setGeneratedDraft(e.target.value)}
                 placeholder="Click 'Draft Remembrance' on the left to generate a personalized tribute from selected memories, or type freely here..."
-                className="form-textarea font-serif text-base text-[#332A27] leading-relaxed p-4 bg-[#FFFDF9] border border-[#E8D3AC] rounded-xl focus:ring-2 focus:ring-[#713B55]"
+                className="form-textarea font-serif text-base text-[#F7EFE2] leading-relaxed p-4 bg-[#18131E] border border-[#382C3D] rounded-xl focus:ring-2 focus:ring-[#F5A623]"
               />
             </div>
 
             {/* Source Grounding Notes */}
             {sourcesUsedInfo && (
-              <div className="mt-3 p-3 rounded-lg bg-[#FFF3D8]/80 border border-[#E8D3AC] text-xs text-[#713B55] flex items-center gap-2">
+              <div className="mt-3 p-3 rounded-lg bg-[#241B2C] border border-[#382C3D] text-xs text-[#FFB733] flex items-center gap-2">
                 <Info size={16} className="shrink-0" />
                 <span className="font-serif italic">{sourcesUsedInfo}</span>
-                {modelUsed && <span className="ml-auto text-[10px] font-mono opacity-70">Model: {modelUsed}</span>}
+                {modelUsed && <span className="ml-auto text-[10px] font-mono opacity-70 text-[#B8A6B6]">Model: {modelUsed}</span>}
               </div>
             )}
 
             {/* Transparency Guidance Footnote */}
-            <p className="text-[11px] text-[#9C8E87] mt-3 leading-relaxed">
+            <p className="text-[11px] text-[#8E7C8E] mt-3 leading-relaxed">
               * Original memories remain safely preserved in the database. Saving updates the headline remembrance tribute displayed on the main altar. You can edit this text at any time.
             </p>
 

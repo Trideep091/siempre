@@ -49,15 +49,17 @@ app.add_middleware(
 settings.media_dir # ensures created
 app.mount("/media", StaticFiles(directory=str(settings.media_dir)), name="media")
 
-# Include API Routers under /api
-app.include_router(memorials_router, prefix="/api")
-app.include_router(items_router, prefix="/api")
-app.include_router(stories_router, prefix="/api")
-app.include_router(ai_router, prefix="/api")
-app.include_router(search_router, prefix="/api")
-app.include_router(demo_router, prefix="/api")
+# Include API Routers under /api AND root (ensures compatibility whether path prefix is preserved or stripped)
+for prefix in ["/api", ""]:
+    app.include_router(memorials_router, prefix=prefix)
+    app.include_router(items_router, prefix=prefix)
+    app.include_router(stories_router, prefix=prefix)
+    app.include_router(ai_router, prefix=prefix)
+    app.include_router(search_router, prefix=prefix)
+    app.include_router(demo_router, prefix=prefix)
 
 @app.get("/api")
+@app.get("/")
 async def api_root():
     return {
         "app": settings.PROJECT_NAME,
@@ -67,6 +69,7 @@ async def api_root():
         "docs_url": "/docs"
     }
 
+@app.get("/health")
 @app.get("/api/health")
 async def health_check():
     """System health check endpoint verifying database connectivity and configuration."""

@@ -1,0 +1,260 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-warm-paper);
+  background-image: 
+    radial-gradient(ellipse at 15% 15%, rgba(243, 166, 35, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 85%, rgba(220, 96, 115, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(232, 211, 172, 0.3) 0%, transparent 80%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus states */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-marigold-dark);
+  outline-offset: 2px;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-hand {
+  font-family: var(--font-handwritten);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(232, 211, 172, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-aged-parchment);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-tangerine);
+}
+
+/* Paper Card Container */
+.paper-card {
+  background-color: var(--color-soft-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-paper);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  position: relative;
+}
+
+.paper-card:hover {
+  box-shadow: var(--shadow-paper-lifted);
+}
+
+/* Polaroid-Style Photo Frame */
+.polaroid-card {
+  background: #FFFDFC;
+  padding: 12px 12px 24px 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-paper);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.polaroid-card:hover {
+  transform: translateY(-4px) rotate(0.5deg);
+  box-shadow: var(--shadow-paper-lifted);
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.btn-primary {
+  background-color: var(--color-marigold);
+  color: #3B2100;
+  border-color: #DE9314;
+  box-shadow: 0 2px 5px rgba(243, 166, 35, 0.35);
+}
+.btn-primary:hover {
+  background-color: #E29618;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(243, 166, 35, 0.45);
+}
+
+.btn-berry {
+  background-color: var(--color-berry);
+  color: #FFF;
+  border-color: var(--color-berry-dark);
+}
+.btn-berry:hover {
+  background-color: var(--color-berry-dark);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-soft-cream);
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+.btn-secondary:hover {
+  background-color: #F8EFE0;
+  border-color: var(--color-ink-muted);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+.btn-outline:hover {
+  background: rgba(243, 166, 35, 0.12);
+  border-color: var(--color-marigold);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 13px 28px;
+  font-size: 1.08rem;
+}
+
+/* Badge System */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-marigold {
+  background: var(--color-marigold-light);
+  color: #8C5300;
+  border: 1px solid #ECC97A;
+}
+
+.badge-berry {
+  background: var(--color-berry-light);
+  color: var(--color-berry-dark);
+  border: 1px solid #CDB1C0;
+}
+
+.badge-coral {
+  background: var(--color-coral-light);
+  color: #9C2738;
+  border: 1px solid #E6B5BE;
+}
+
+.badge-botanical {
+  background: var(--color-botanical-light);
+  color: #1F4D3B;
+  border: 1px solid #B0D4C5;
+}
+
+.badge-turquoise {
+  background: var(--color-turquoise-light);
+  color: #1F5A56;
+  border: 1px solid #B0DDD8;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--color-ink);
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  margin-top: 4px;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: #FFFDF9;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--color-marigold);
+  box-shadow: 0 0 0 3px rgba(243, 166, 35, 0.2);
+  outline: none;
+}
+
+/* Print Friendly Styles */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print, header, nav, .btn, .altar-controls, .editor-bar {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .paper-card, .polaroid-card {
+    box-shadow: none !important;
+    border: 1px solid #CCCCCC !important;
+    break-inside: avoid;
+  }
+}
+

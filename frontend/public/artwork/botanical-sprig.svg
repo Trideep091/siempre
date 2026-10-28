@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none">
+  <!-- Delicate curved vine stem -->
+  <path d="M15 85 C25 60 45 40 85 15" stroke="#36775B" stroke-width="2.2" stroke-linecap="round" />
+  
+  <!-- Foliage leaves in rich botanical green and sage -->
+  <path d="M30 65 C25 55 28 45 38 48 C42 55 38 65 30 65 Z" fill="#36775B" opacity="0.9" />
+  <path d="M42 52 C52 50 56 40 48 35 C42 40 40 48 42 52 Z" fill="#4B9070" opacity="0.9" />
+  <path d="M54 38 C52 26 60 22 66 28 C64 36 58 40 54 38 Z" fill="#36775B" opacity="0.9" />
+  <path d="M68 26 C75 24 82 14 74 12 C68 16 66 22 68 26 Z" fill="#4B9070" opacity="0.9" />
+  
+  <!-- Small golden marigold bud at the tip -->
+  <circle cx="84" cy="16" r="5" fill="#F3A623" />
+  <circle cx="84" cy="16" r="2.5" fill="#ED7047" />
+</svg>
+

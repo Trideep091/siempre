@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120" fill="none">
+  <defs>
+    <filter id="bowlShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#332A27" flood-opacity="0.2" />
+    </filter>
+    <radialGradient id="moleGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B1E13" />
+      <stop offset="65%" stop-color="#28130B" />
+      <stop offset="100%" stop-color="#1B0C06" />
+    </radialGradient>
+  </defs>
+
+  <!-- Shadow under the bowl -->
+  <ellipse cx="80" cy="105" rx="55" ry="8" fill="#332A27" opacity="0.18" />
+
+  <!-- Traditional Clay Cazuela (Barro bowl) -->
+  <g filter="url(#bowlShadow)">
+    <!-- Bowl body -->
+    <path d="M25 50 Q80 115 135 50 Q135 40 125 36 Q80 48 35 36 Q25 40 25 50 Z" fill="#B3542E" stroke="#8A3B18" stroke-width="2" />
+    
+    <!-- Clay handles on both sides -->
+    <path d="M25 45 C15 45 15 58 27 58" stroke="#8A3B18" stroke-width="3.5" fill="none" stroke-linecap="round" />
+    <path d="M135 45 C145 45 145 58 133 58" stroke="#8A3B18" stroke-width="3.5" fill="none" stroke-linecap="round" />
+
+    <!-- Rich Dark Mole Surface -->
+    <ellipse cx="80" cy="46" rx="46" ry="14" fill="url(#moleGradient)" stroke="#8A3B18" stroke-width="1.5" />
+
+    <!-- White and Golden Sesame Seeds sprinkled on top -->
+    <g fill="#FFF8DC">
+      <ellipse cx="65" cy="42" rx="1.5" ry="0.8" transform="rotate(20 65 42)" />
+      <ellipse cx="78" cy="40" rx="1.5" ry="0.8" transform="rotate(-30 78 40)" />
+      <ellipse cx="92" cy="44" rx="1.5" ry="0.8" transform="rotate(15 92 44)" />
+      <ellipse cx="72" cy="48" rx="1.5" ry="0.8" transform="rotate(-10 72 48)" />
+      <ellipse cx="86" cy="49" rx="1.5" ry="0.8" transform="rotate(45 86 49)" />
+      <ellipse cx="102" cy="43" rx="1.5" ry="0.8" transform="rotate(-25 102 43)" />
+      <ellipse cx="58" cy="46" rx="1.5" ry="0.8" transform="rotate(35 58 46)" />
+    </g>
+
+    <!-- Wooden Spoon tucked in -->
+    <path d="M105 32 Q115 15 125 10 Q128 12 125 16 Q115 35 105 45" stroke="#C49A6C" stroke-width="4.5" stroke-linecap="round" fill="none" />
+  </g>
+</svg>
+

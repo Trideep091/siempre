@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="80" height="120" fill="none">
+  <defs>
+    <!-- Halo glow -->
+    <radialGradient id="candleGlow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#FFEAA7" stop-opacity="0.85" />
+      <stop offset="45%" stop-color="#F39C12" stop-opacity="0.45" />
+      <stop offset="85%" stop-color="#ED7047" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ED7047" stop-opacity="0" />
+    </radialGradient>
+    <!-- Flame gradient -->
+    <radialGradient id="flameGrad" cx="50%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#FFF275" />
+      <stop offset="70%" stop-color="#F39C12" />
+      <stop offset="100%" stop-color="#E74C3C" />
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes gentleFlicker {
+      0%, 100% { transform: scale(1) translate(0, 0) rotate(0deg); opacity: 0.95; }
+      25% { transform: scale(1.05, 0.97) translate(0.5px, -1px) rotate(1.5deg); opacity: 1; }
+      50% { transform: scale(0.96, 1.04) translate(-0.5px, 0.5px) rotate(-1deg); opacity: 0.9; }
+      75% { transform: scale(1.02, 1.01) translate(0.3px, -0.5px) rotate(0.8deg); opacity: 0.98; }
+    }
+    .flicker-flame {
+      transform-origin: 40px 38px;
+      animation: gentleFlicker 2.8s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Candle Light Halo -->
+  <circle cx="40" cy="30" r="32" fill="url(#candleGlow)" />
+
+  <!-- Glass Holder / Base shadow -->
+  <ellipse cx="40" cy="112" rx="24" ry="5" fill="#332A27" opacity="0.15" />
+
+  <!-- Glass Jar Body -->
+  <rect x="22" y="48" width="36" height="64" rx="6" fill="#FDFEFE" opacity="0.25" stroke="#E8D3AC" stroke-width="1.5" />
+  
+  <!-- Wax fill inside jar -->
+  <path d="M24 58 Q40 62 56 58 L56 108 Q40 112 24 108 Z" fill="#FFF9E6" />
+  <path d="M24 58 Q40 62 56 58 Q40 54 24 58 Z" fill="#FFEAA7" opacity="0.8" />
+
+  <!-- Wax drips -->
+  <path d="M30 58 Q31 70 33 66 Q35 60 36 58" fill="#FFF2CC" />
+  <path d="M46 58 Q47 74 50 68 Q52 61 53 58" fill="#FFF2CC" />
+
+  <!-- Wick -->
+  <path d="M40 58 Q39 48 40 40" stroke="#332A27" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Flickering Flame -->
+  <g class="flicker-flame" filter="url(#softGlow)">
+    <!-- Outer orange/red flame -->
+    <path d="M40 16 C46 26 48 35 44 40 C42 43 38 43 36 40 C32 35 34 26 40 16 Z" fill="url(#flameGrad)" />
+    <!-- Inner bright white/yellow core -->
+    <ellipse cx="40" cy="36" rx="2.8" ry="5" fill="#FFFFFF" opacity="0.9" />
+  </g>
+</svg>
+

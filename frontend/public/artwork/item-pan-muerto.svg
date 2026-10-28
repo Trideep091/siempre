@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 130" width="160" height="130" fill="none">
+  <defs>
+    <filter id="breadShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#332A27" flood-opacity="0.2" />
+    </filter>
+    <radialGradient id="crustGrad" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FCE1A6" />
+      <stop offset="60%" stop-color="#E5A65E" />
+      <stop offset="100%" stop-color="#BD742A" />
+    </radialGradient>
+  </defs>
+
+  <!-- Shadow under the bread -->
+  <ellipse cx="80" cy="112" rx="58" ry="10" fill="#332A27" opacity="0.18" />
+
+  <!-- Bread Loaf Body -->
+  <g filter="url(#breadShadow)">
+    <ellipse cx="80" cy="75" rx="55" ry="36" fill="url(#crustGrad)" stroke="#A05A18" stroke-width="1.8" />
+
+    <!-- Cross Bones (Canillas) Dough Relief -->
+    <!-- Horizontal bone with knuckle knobs -->
+    <path d="M35 74 C45 66 65 72 80 72 C95 72 115 66 125 74" stroke="#F5C482" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="36" cy="74" r="5" fill="#E8AA5C" />
+    <circle cx="124" cy="74" r="5" fill="#E8AA5C" />
+
+    <!-- Vertical / diagonal bone -->
+    <path d="M52 48 C62 58 72 70 80 75 C88 80 98 94 108 102" stroke="#F5C482" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="52" cy="48" r="5" fill="#E8AA5C" />
+    <circle cx="108" cy="102" r="5" fill="#E8AA5C" />
+
+    <!-- Center Skull / Crown knob (Mollere) -->
+    <circle cx="80" cy="62" r="9" fill="#F8D397" stroke="#A05A18" stroke-width="1.5" />
+
+    <!-- Sugar Crystals Glisten -->
+    <g fill="#FFFFFF" opacity="0.8">
+      <circle cx="70" cy="54" r="1.2" />
+      <circle cx="90" cy="56" r="1.2" />
+      <circle cx="78" cy="80" r="1.4" />
+      <circle cx="62" cy="84" r="1" />
+      <circle cx="96" cy="78" r="1.2" />
+      <circle cx="48" cy="68" r="1.1" />
+      <circle cx="112" cy="70" r="1.1" />
+      <circle cx="80" cy="62" r="1.5" />
+    </g>
+  </g>
+</svg>
+

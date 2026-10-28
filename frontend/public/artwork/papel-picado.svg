@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 130" width="100%" height="130" preserveAspectRatio="none" fill="none">
+  <!-- String line -->
+  <path d="M0 20 Q 200 45, 400 25 T 800 20" stroke="#8D6E63" stroke-width="2" stroke-dasharray="6,2" />
+
+  <!-- Flag 1: Turquoise Folk Sun -->
+  <g transform="translate(40, 22) rotate(-2)">
+    <path d="M0 0 L120 0 L120 90 L100 80 L80 90 L60 80 L40 90 L20 80 L0 90 Z" fill="#4A9C96" />
+    <!-- Cutouts -->
+    <circle cx="60" cy="40" r="16" fill="#FFF3D8" />
+    <circle cx="60" cy="40" r="10" fill="#4A9C96" />
+    <path d="M60 16 L60 22 M60 58 L60 64 M36 40 L42 40 M78 40 L84 40" stroke="#FFF3D8" stroke-width="2.5" />
+    <circle cx="30" cy="22" r="3" fill="#FFF3D8" />
+    <circle cx="90" cy="22" r="3" fill="#FFF3D8" />
+    <circle cx="30" cy="60" r="3" fill="#FFF3D8" />
+    <circle cx="90" cy="60" r="3" fill="#FFF3D8" />
+  </g>
+
+  <!-- Flag 2: Marigold Flower Pattern -->
+  <g transform="translate(190, 32) rotate(1.5)">
+    <path d="M0 0 L120 0 L120 90 L100 80 L80 90 L60 80 L40 90 L20 80 L0 90 Z" fill="#F3A623" />
+    <!-- Cutouts -->
+    <path d="M60 25 C52 35 68 35 60 45 C52 35 68 35 60 25 Z" fill="#FFF3D8" />
+    <circle cx="60" cy="45" r="6" fill="#FFF3D8" />
+    <circle cx="35" cy="45" r="4.5" fill="#FFF3D8" />
+    <circle cx="85" cy="45" r="4.5" fill="#FFF3D8" />
+    <path d="M40 65 Q60 55 80 65" stroke="#FFF3D8" stroke-width="2" fill="none" />
+  </g>
+
+  <!-- Flag 3: Coral Pink Heart & Bird Motif -->
+  <g transform="translate(340, 26) rotate(-1)">
+    <path d="M0 0 L120 0 L120 90 L100 80 L80 90 L60 80 L40 90 L20 80 L0 90 Z" fill="#DC6073" />
+    <!-- Heart Cutout -->
+    <path d="M60 50 C50 35 35 42 45 56 L60 70 L75 56 C85 42 70 35 60 50 Z" fill="#FFF3D8" />
+    <circle cx="60" cy="25" r="5" fill="#FFF3D8" />
+    <circle cx="30" cy="25" r="4" fill="#FFF3D8" />
+    <circle cx="90" cy="25" r="4" fill="#FFF3D8" />
+  </g>
+
+  <!-- Flag 4: Deep Berry Floral Mandala -->
+  <g transform="translate(490, 30) rotate(2)">
+    <path d="M0 0 L120 0 L120 90 L100 80 L80 90 L60 80 L40 90 L20 80 L0 90 Z" fill="#713B55" />
+    <!-- Diamond & Star Cutout -->
+    <polygon points="60,20 72,42 60,64 48,42" fill="#FFF3D8" />
+    <circle cx="60" cy="42" r="4" fill="#713B55" />
+    <circle cx="32" cy="42" r="4" fill="#FFF3D8" />
+    <circle cx="88" cy="42" r="4" fill="#FFF3D8" />
+    <circle cx="60" cy="74" r="3.5" fill="#FFF3D8" />
+  </g>
+
+  <!-- Flag 5: Botanical Green Foliage -->
+  <g transform="translate(640, 22) rotate(-1.5)">
+    <path d="M0 0 L120 0 L120 90 L100 80 L80 90 L60 80 L40 90 L20 80 L0 90 Z" fill="#36775B" />
+    <!-- Branch / Vine Leaves Cutout -->
+    <path d="M60 20 Q65 45 60 70" stroke="#FFF3D8" stroke-width="2.5" fill="none" />
+    <path d="M60 32 C50 28 45 38 60 36 C75 34 70 44 60 42 C50 42 48 52 60 52 C72 52 70 62 60 62" stroke="#FFF3D8" stroke-width="2" fill="none" />
+    <circle cx="34" cy="26" r="4" fill="#FFF3D8" />
+    <circle cx="86" cy="26" r="4" fill="#FFF3D8" />
+  </g>
+</svg>
+

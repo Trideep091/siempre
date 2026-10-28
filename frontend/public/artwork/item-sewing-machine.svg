@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 130" width="160" height="130" fill="none">
+  <defs>
+    <filter id="ironShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#332A27" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <ellipse cx="80" cy="118" rx="65" ry="7" fill="#332A27" opacity="0.2" />
+
+  <g filter="url(#ironShadow)">
+    <!-- Wooden base table mount -->
+    <rect x="18" y="100" width="124" height="14" rx="2" fill="#8B4513" stroke="#5C2E0B" stroke-width="1.5" />
+    <line x1="20" y1="104" x2="140" y2="104" stroke="#A0522D" stroke-width="1" />
+
+    <!-- Cast-Iron Body (Vintage Black with Gold Decals) -->
+    <!-- Base bed -->
+    <rect x="25" y="92" width="110" height="10" rx="1" fill="#222222" stroke="#111111" stroke-width="1" />
+    
+    <!-- Vertical Arm Pillar (right) -->
+    <path d="M102 92 L106 42 Q108 34 118 34 L122 34 Q132 34 130 46 L124 92 Z" fill="#222222" stroke="#111111" stroke-width="1" />
+
+    <!-- Horizontal Overhead Arm -->
+    <path d="M42 42 L112 36 Q118 36 118 48 L42 54 Z" fill="#222222" />
+
+    <!-- Needle Head (left) -->
+    <rect x="36" y="38" width="16" height="38" rx="2" fill="#222222" stroke="#111111" stroke-width="1" />
+    
+    <!-- Chrome Needle Bar and Presser Foot -->
+    <line x1="44" y1="76" x2="44" y2="92" stroke="#BDC3C7" stroke-width="2.5" />
+    <path d="M40 92 L48 92" stroke="#BDC3C7" stroke-width="2" />
+
+    <!-- Hand Wheel on Right -->
+    <ellipse cx="128" cy="56" rx="6" ry="24" fill="#2C3E50" stroke="#1A252F" stroke-width="1.5" />
+    <ellipse cx="128" cy="56" rx="2" ry="8" fill="#F1C40F" />
+
+    <!-- Gold Filigree Decals & Vintage SINGER Lettering -->
+    <path d="M58 46 Q78 40 98 44" stroke="#F1C40F" stroke-width="1.5" fill="none" />
+    <circle cx="78" cy="43" r="2" fill="#F1C40F" />
+    <path d="M110 55 Q115 65 112 75" stroke="#F1C40F" stroke-width="1.2" fill="none" />
+
+    <!-- Thread Spool on Top Peg -->
+    <rect x="108" y="24" width="8" height="12" rx="1" fill="#DC6073" stroke="#B84255" stroke-width="1" />
+    <line x1="112" y1="20" x2="112" y2="36" stroke="#BDC3C7" stroke-width="1.5" />
+  </g>
+</svg>
+

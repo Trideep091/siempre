@@ -126,7 +126,8 @@ async def delete_memorial(id: str, db: AsyncSession = Depends(get_db)):
     res = await db.execute(stmt)
     memorial = res.scalar_one_or_none()
     if not memorial:
-        raise HTTPException(status_code=404, detail="Memorial not found")
+        # Idempotent deletion: if already removed, treat as success
+        return Response(status_code=204)
 
     # Clean up associated files safely
     def safe_remove_file(rel_path: str | None):

@@ -107,7 +107,8 @@ async def delete_story(id: str, db: AsyncSession = Depends(get_db)):
     res = await db.execute(select(Story).where(Story.id == id))
     story = res.scalar_one_or_none()
     if not story:
-        raise HTTPException(status_code=404, detail="Story not found")
+        # Idempotent deletion: if already removed, treat as success
+        return Response(status_code=204)
 
     if story.audio_path:
         clean_path = Path(story.audio_path.lstrip("/").replace("media/", str(settings.media_dir) + "/"))

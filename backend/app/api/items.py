@@ -68,7 +68,8 @@ async def delete_item(id: str, db: AsyncSession = Depends(get_db)):
     res = await db.execute(select(MemoryItem).where(MemoryItem.id == id))
     item = res.scalar_one_or_none()
     if not item:
-        raise HTTPException(status_code=404, detail="Item not found")
+        # Idempotent deletion: if already removed, treat as success
+        return Response(status_code=204)
 
     if item.asset_path:
         clean_path = Path(item.asset_path.lstrip("/").replace("media/", str(settings.media_dir) + "/"))

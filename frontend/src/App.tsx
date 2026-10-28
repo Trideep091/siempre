@@ -103,24 +103,29 @@ export const App: React.FC = () => {
   const handleDeleteMemorial = async (id: string) => {
     try {
       await api.deleteMemorial(id);
-      const remaining = memorials.filter(m => m.id !== id);
-      setMemorials(remaining);
-      if (currentView === 'welcome') {
-        if (activeMemorialId === id) {
-          setActiveMemorial(null);
-          setActiveMemorialId(remaining[0]?.id || null);
-        }
-        return;
+    } catch (e: any) {
+      // If error is 404, it means it's already removed/not present on the server
+      if (e?.status !== 404) {
+        console.warn('Delete memorial backend notice:', e);
       }
-      if (remaining.length > 0) {
-        selectMemorial(remaining[0].id, 'altar');
-      } else {
+    }
+
+    // Always remove from local state so the user is never stuck with a phantom card
+    const remaining = memorials.filter(m => m.id !== id);
+    setMemorials(remaining);
+    if (currentView === 'welcome') {
+      if (activeMemorialId === id) {
         setActiveMemorial(null);
-        setActiveMemorialId(null);
-        setCurrentView('welcome');
+        setActiveMemorialId(remaining[0]?.id || null);
       }
-    } catch (e) {
-      alert('Failed to delete memorial');
+      return;
+    }
+    if (remaining.length > 0) {
+      selectMemorial(remaining[0].id, 'altar');
+    } else {
+      setActiveMemorial(null);
+      setActiveMemorialId(null);
+      setCurrentView('welcome');
     }
   };
 

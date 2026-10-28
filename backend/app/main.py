@@ -57,6 +57,16 @@ app.include_router(ai_router, prefix="/api")
 app.include_router(search_router, prefix="/api")
 app.include_router(demo_router, prefix="/api")
 
+@app.get("/api")
+async def api_root():
+    return {
+        "app": settings.PROJECT_NAME,
+        "version": settings.VERSION,
+        "tagline": "Some stories deserve to stay.",
+        "status": "online",
+        "docs_url": "/docs"
+    }
+
 @app.get("/api/health")
 async def health_check():
     """System health check endpoint verifying database connectivity and configuration."""
@@ -72,6 +82,7 @@ async def health_check():
         "status": "healthy" if db_ok else "degraded",
         "app": settings.PROJECT_NAME,
         "version": settings.VERSION,
+        "environment": settings.ENVIRONMENT,
         "database_connected": db_ok,
         "media_storage_path": str(settings.media_dir),
         "ollama_base_url": settings.OLLAMA_BASE_URL,

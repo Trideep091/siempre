@@ -1,0 +1,12 @@
+{
+  "name": "siempre",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Siempre — A Living Digital Ofrenda",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "./start.sh",
+    "start": "./deploy.sh"
+  }
+}
+

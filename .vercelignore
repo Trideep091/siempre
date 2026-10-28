@@ -1,0 +1,12 @@
+# Vercel Deployment Ignore
+backend/venv
+frontend/node_modules
+.pytest_cache
+backend/data
+data
+*.pyc
+__pycache__
+.git
+.github
+*.log
+

@@ -115,6 +115,27 @@ docker run -p 8000:8000 -v siempre_data:/app/data siempre:latest
 ```
 Access the application at `http://localhost:8000`.
 
+#### Option C: Deploy to Vercel (Serverless)
+Siempre is fully configured for deployment on **Vercel** with zero custom configuration required:
+1. **Using GitHub:** Push this repo to GitHub and import it on [vercel.com](https://vercel.com).
+2. **Using Vercel CLI:**
+   ```bash
+   npm i -g vercel
+   vercel
+   ```
+   For production:
+   ```bash
+   vercel --prod
+   ```
+
+**How Vercel Works with Siempre:**
+- **Frontend:** Built via `cd frontend && npm install && npm run build` and served from Vercel's global CDN Edge Network.
+- **Backend API:** Executed as a Python Serverless Function via [`api/index.py`](file:///Users/trideep/Desktop/siempre/api/index.py).
+- **Storage & Database on Vercel:**
+  - *Default (Zero Config):* The app uses an auto-initializing SQLite database in `/tmp/siempre.db`, pre-seeded with the Abuela Elena ofrenda on cold start.
+  - *Persistent Storage (Recommended for Production):* Set the `DATABASE_URL` environment variable in your Vercel Project Settings to any cloud PostgreSQL (Supabase, Neon, AWS RDS) or Turso/libsql database.
+  - *Local AI (Ollama):* Ollama runs on your local machine by default. For cloud AI in Vercel, set `OLLAMA_BASE_URL` to an accessible remote Ollama endpoint or tunnel. If offline, the studio gracefully allows direct manual remembrance writing and editing.
+
 ---
 
 ## Quickstart Guide
